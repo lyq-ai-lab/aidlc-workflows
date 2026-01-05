@@ -23,6 +23,7 @@ The AI model intelligently assesses what stages are needed based on:
 ## MANDATORY: Content Validation
 **CRITICAL**: Before creating ANY file, you MUST validate content according to `common/content-validation.md` rules:
 - Validate Mermaid diagram syntax
+- Validate ASCII art diagrams (see `common/ascii-diagram-standards.md`)
 - Escape special characters properly
 - Provide text alternatives for complex visual content
 - Test content parsing compatibility

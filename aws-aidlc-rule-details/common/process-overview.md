@@ -126,7 +126,7 @@ flowchart TD
 - NFR Design: Incorporate NFR patterns and logical components (CONDITIONAL, per-unit)
 - Infrastructure Design: Map to actual infrastructure services (CONDITIONAL, per-unit)
 - Code Generation: Generate code with Part 1 - Planning, Part 2 - Generation (ALWAYS, per-unit)
-- Build and Test: Build all units and execute comprehensive testing (ALWAYS)
+- Build and Test: Build applicable units, verify approved behavior, and run selected existing checks (ALWAYS)
 
 **🟡 OPERATIONS PHASE** - Placeholder
 - Operations: Placeholder for future deployment and monitoring workflows (PLACEHOLDER)

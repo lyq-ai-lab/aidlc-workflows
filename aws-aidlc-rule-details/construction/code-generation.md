@@ -3,7 +3,7 @@
 ## Overview
 This stage generates code for each unit of work through two integrated parts:
 - **Part 1 - Planning**: Create detailed code generation plan with explicit steps
-- **Part 2 - Generation**: Execute approved plan to generate code, tests, and artifacts
+- **Part 2 - Generation**: Execute approved plan to generate implementation code and applicable artifacts
 
 **Note**: For brownfield projects, "generate" means modify existing files when appropriate, not create duplicates.
 
@@ -28,23 +28,19 @@ This stage generates code for each unit of work through two integrated parts:
 - [ ] Determine code location (see Critical Rules for structure patterns)
 - [ ] **Brownfield only**: Review reverse engineering code-structure.md for existing files to modify
 - [ ] Document exact paths (never aidlc-docs/)
-- [ ] Create explicit steps for unit generation:
+- [ ] Create explicit steps for the implementation and artifacts required by the approved unit design. Select applicable activities from these examples:
   - Project Structure Setup (greenfield only)
   - Business Logic Generation
-  - Business Logic Unit Testing
   - Business Logic Summary
   - API Layer Generation
-  - API Layer Unit Testing
   - API Layer Summary
   - Repository Layer Generation
-  - Repository Layer Unit Testing
   - Repository Layer Summary
   - Frontend Components Generation (if applicable)
-  - Frontend Components Unit Testing (if applicable)
   - Frontend Components Summary (if applicable)
   - Database Migration Scripts (if data models exist)
   - Documentation Generation (API docs, README updates)
-  - Deployment Artifacts Generation
+  - Deployment Artifacts Generation (when required by the unit design)
 - [ ] Number each step sequentially
 - [ ] Include story mapping references
 - [ ] Add checkboxes [ ] for each step
@@ -135,7 +131,7 @@ This stage generates code for each unit of work through two integrated parts:
      2. **AI Summary** (optional): Provide structured bullet-point summary
         - **Brownfield**: Distinguish modified vs created files (e.g., "• Modified: `src/services/user-service.ts`", "• Created: `src/services/auth-service.ts`")
         - **Greenfield**: List created files with paths (e.g., "• Created: `src/services/user-service.ts`")
-        - List tests, documentation, deployment artifacts with paths
+        - List documentation and other generated artifacts with paths
         - Keep factual, no workflow instructions
      3. **Formatted Workflow Message** (mandatory): Always end with this exact format:
 
@@ -178,9 +174,9 @@ This stage generates code for each unit of work through two integrated parts:
 
 **Structure patterns by project type**:
 - **Brownfield**: Use existing structure (e.g., `src/main/java/`, `lib/`, `pkg/`)
-- **Greenfield single unit**: `src/`, `tests/`, `config/` in workspace root
-- **Greenfield multi-unit (microservices)**: `{unit-name}/src/`, `{unit-name}/tests/`
-- **Greenfield multi-unit (monolith)**: `src/{unit-name}/`, `tests/{unit-name}/`
+- **Greenfield single unit**: Follow the approved unit layout (for example, `src/`, `config/`)
+- **Greenfield multi-unit (microservices)**: Follow the approved service layout (for example, `{unit-name}/src/`)
+- **Greenfield multi-unit (monolith)**: Follow the approved module layout (for example, `src/{unit-name}/`)
 
 ### Brownfield File Modification Rules
 - Check if file exists before generating
@@ -212,6 +208,6 @@ When generating UI code (web, mobile, desktop), ensure elements are automation-f
 - Complete unit code generation plan created and approved
 - All steps in unit code generation plan marked [x]
 - All unit stories implemented according to plan
-- All code and tests generated (tests will be executed in Build & Test phase)
-- Deployment artifacts generated
+- All implementation code generated
+- Deployment artifacts generated when required by the approved unit design
 - Complete unit ready for build and verification

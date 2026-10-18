@@ -393,7 +393,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 **Code Generation has two parts within one stage**:
 1. **Part 1 - Planning**: Create detailed code generation plan with explicit steps
-2. **Part 2 - Generation**: Execute approved plan to generate code, tests, and artifacts
+2. **Part 2 - Generation**: Execute approved plan to generate implementation code and applicable artifacts
 
 **Execution**:
 1. **MANDATORY**: Log any user input during this stage in audit.md
@@ -410,14 +410,12 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `construction/build-and-test.md`
-3. Generate comprehensive build and test instructions:
-   - Build instructions for all units
-   - Unit test execution instructions
-   - Integration test instructions (test interactions between units)
-   - Performance test instructions (if applicable)
-   - Additional test instructions as needed (contract tests, security tests, e2e tests)
-4. Create instruction files in build-and-test/ subdirectory: build-instructions.md, unit-test-instructions.md, integration-test-instructions.md, performance-test-instructions.md, build-and-test-summary.md
-5. **Wait for Explicit Approval**: Ask: "**Build and test instructions complete. Ready to proceed to Operations stage?**" - DO NOT PROCEED until user confirms
+3. Prepare and execute build and verification steps for the current scope:
+   - Build applicable units and artifacts
+   - Exercise implemented behavior against approved requirements through existing entry points
+   - Run the existing checks selected for this task
+4. Record build instructions and observed results in build-and-test/: build-instructions.md, build-and-test-summary.md, and execution instructions for selected existing checks where needed
+5. **Wait for Explicit Approval**: Ask: "**Build and verification results are ready for review. Ready to proceed to Operations stage?**" Continue after the user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ---
